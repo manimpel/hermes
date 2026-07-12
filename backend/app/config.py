@@ -15,6 +15,8 @@ class Settings:
     RAZORPAY_WEBHOOK_SECRET: str = os.getenv("RAZORPAY_WEBHOOK_SECRET", "")
     MSG91_AUTH_KEY: str = os.getenv("MSG91_AUTH_KEY", "")
     CLOUDINARY_URL: str = os.getenv("CLOUDINARY_URL", "")
+    DEEPSEEK_API_KEY: str = os.getenv("DEEPSEEK_API_KEY", "")
+    DEEPSEEK_BASE_URL: str = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
     JWT_SECRET: str = os.getenv("JWT_SECRET", "hermes-dev-secret-change-in-prod")
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRY_HOURS: int = 720  # 30 days
