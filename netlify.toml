@@ -1,7 +1,7 @@
 [build]
   base = "frontend"
-  command = "npm install --legacy-peer-deps && npm run build"
-  publish = "frontend/.next"
+  command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   NEXT_PUBLIC_API_URL = "https://hermes-799o.onrender.com"
