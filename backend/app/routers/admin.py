@@ -20,14 +20,6 @@ def verify_admin(authorization: str = Header(...)):
     return True
 
 
-@router.get("/otps")
-async def list_otps(_: bool = Depends(verify_admin)):
-    """View all pending OTPs so you can share them with users manually."""
-    from app.routers.auth import get_otp_store
-    store = get_otp_store()
-    return {"pending_otps": [{"phone": phone, "otp": otp} for phone, otp in store.items()]}
-
-
 @router.get("/projects")
 async def list_projects(
     status: str = None,

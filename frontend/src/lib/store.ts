@@ -14,8 +14,7 @@ interface AuthState {
   token: string | null;
   isNew: boolean;
   isLoading: boolean;
-  sendOtp: (phone: string) => Promise<string | null>;
-  verifyOtp: (phone: string, otp: string) => Promise<boolean>;
+  login: (phone: string) => Promise<boolean>;
   fetchMe: () => Promise<void>;
   updateUser: (data: Partial<User> & { role?: string }) => Promise<void>;
   logout: () => void;
@@ -27,13 +26,8 @@ export const useAuth = create<AuthState>((set, get) => ({
   isNew: false,
   isLoading: false,
 
-  sendOtp: async (phone: string) => {
-    await api.post("/auth/otp/send", { phone });
-    return null;
-  },
-
-  verifyOtp: async (phone: string, otp: string) => {
-    const res = await api.post("/auth/otp/verify", { phone, otp });
+  login: async (phone: string) => {
+    const res = await api.post("/auth/login", { phone });
     const { token, user_id, is_new } = res.data;
     localStorage.setItem("hermes_token", token);
     set({ token, isNew: is_new });
