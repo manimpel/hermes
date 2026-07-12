@@ -2,10 +2,5 @@
   command = "npm run build"
   publish = ".next"
 
-[[redirects]]
-  from = "/api/*"
-  to = "https://RENDER_URL_HERE/:splat"
-  status = 200
-
 [build.environment]
-  NEXT_PUBLIC_API_URL = "https://RENDER_URL_HERE"
+  NEXT_PUBLIC_API_URL = "https://hermes-799o.onrender.com"
